@@ -15,7 +15,7 @@ interface Game {
   description: string;
   genre: string;
   platform: string[];
-  getSimilars?: (title:string) => void;
+  getSimilars?: (title: string) => void;
 }
 
 const tlou: Game = {
@@ -23,13 +23,12 @@ const tlou: Game = {
   description: 'The best game in the world',
   genre: 'Action',
   platform: ['PS3', 'PS4'],
-  getSimilars: (title:string) => {
-    console.log(`Similar games to ${title}: Uncharted, A Plague Tale, Metro.`)
-  }
-}
+  getSimilars: (title: string) => {
+    console.log(`Similar games to ${title}: Uncharted, A Plague Tale, Metro.`);
+  },
+};
 
-tlou.getSimilars && tlou.getSimilars('The Last of Us')
-
+tlou.getSimilars && tlou.getSimilars('The Last of Us');
 
 interface DLC extends Game {
   originalGame: Game;
@@ -42,9 +41,8 @@ const leftBehind: DLC = {
   genre: 'Action',
   platform: ['PS4'],
   originalGame: tlou,
-  newContent: ['3 hours store', 'new characters']
-}
-
+  newContent: ['3 hours store', 'new characters'],
+};
 
 /*
   Class implements
@@ -60,10 +58,15 @@ class CreateGame implements Game {
   genre: string;
   platform: string[];
 
-  constructor(title: string, description: string, genre: string, platform: string[]) {
+  constructor(
+    title: string,
+    description: string,
+    genre: string,
+    platform: string[]
+  ) {
     this.title = title;
     this.description = description;
     this.genre = genre;
-    this.platform = platform
+    this.platform = platform;
   }
 }
